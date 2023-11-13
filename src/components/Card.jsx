@@ -1,6 +1,10 @@
+import { useContext } from "react"
+import { BasketContext } from "../context/basketContext"
+
 const Card = ({ product }) => {
+    const { addToBasket } = useContext(BasketContext)
     return (
-        <div className="card py-2" style={{width: '250px'}}>
+        <div className="card py-2" style={{ width: '250px' }}>
             <div className="d-flex justify-content-center">
                 <img className="object-fit-contain" height={120} src={product.image} alt="" />
             </div>
@@ -9,7 +13,7 @@ const Card = ({ product }) => {
                 <h4 className="text-truncate">{product.title}</h4>
                 <p>{product.price}</p>
                 <p>{product.category}</p>
-                <button>Sepete Ekle</button>
+                <button onClick={() => addToBasket(product)}>Sepete Ekle</button>
             </div>
         </div>
     )
