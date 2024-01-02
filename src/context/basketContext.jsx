@@ -19,7 +19,7 @@ export function BasketProvider ({children}) {
     };
 
     const removeFromBasket = (delete_id) => {
-        const found = basket.find((id) => i.id == delete_id)
+        const found = basket.find((i) => i.id == delete_id)
 
         if(found.amount > 1) {
             const updated = {...found, amount: found.amount - 1}

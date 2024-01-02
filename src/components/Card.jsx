@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { BasketContext } from "../context/basketContext"
+import { Link } from 'react-router-dom';
 
 const Card = ({ product }) => {
     const { addToBasket } = useContext(BasketContext)
@@ -13,7 +14,8 @@ const Card = ({ product }) => {
                 <h4 className="text-truncate">{product.title}</h4>
                 <p>{product.price}</p>
                 <p>{product.category}</p>
-                <button onClick={() => addToBasket(product)}>Sepete Ekle</button>
+                <button style={{ background: "#F27919"}} onClick={() => addToBasket(product)}>Sepete Ekle</button>
+                <button className="bg-success"><Link className="text-white" to={`/detail/${product.id}`}>Detay Sayfası</Link></button>
             </div>
         </div>
     )
